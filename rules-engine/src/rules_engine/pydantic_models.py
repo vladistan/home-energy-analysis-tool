@@ -93,14 +93,14 @@ class OilPropaneBillingInput(BaseModel):
     """From Oil-Propane tab. Container for holding all rows of the billing input table."""
 
     records: Sequence[OilPropaneBillingRecordInput]
-    preceding_delivery_date: date = Field(description="Oil-Propane!B6")
+    preceding_delivery_date: datetime = Field(description="Oil-Propane!B6")
 
 
 class NaturalGasBillingRecordInput(BaseModel):
     """From Natural Gas tab. A single row of the Billing input table."""
 
-    period_start_date: date = Field(description="Natural Gas!A")
-    period_end_date: date = Field(description="Natural Gas!B")
+    period_start: datetime = Field(description="Natural Gas!A")
+    period_end: datetime = Field(description="Natural Gas!B")
     usage_therms: float = Field(description="Natural Gas!D")
     inclusion_override: Optional[AnalysisType] = Field(description="Natural Gas!E")
 

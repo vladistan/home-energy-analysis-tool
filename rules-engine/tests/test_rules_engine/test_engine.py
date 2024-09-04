@@ -18,8 +18,8 @@ from rules_engine.pydantic_models import (
 )
 
 dummy_billing_period_record = NormalizedBillingPeriodRecordBase(
-    period_start_date=date(2024, 1, 1),
-    period_end_date=date(2024, 2, 1),
+    period_start_date=datetime(2024, 1, 1),
+    period_end_date=datetime(2024, 2, 1),
     usage=1.0,
     analysis_type_override=None,
     inclusion_override=True,
