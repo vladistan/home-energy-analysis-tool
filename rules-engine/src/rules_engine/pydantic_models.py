@@ -3,7 +3,7 @@ Data models for input and output data in the rules engine.
 """
 
 from dataclasses import dataclass
-from datetime import date
+from datetime import datetime, timedelta
 from enum import Enum
 from functools import cached_property
 from typing import Annotated, Any, Literal, Optional, Sequence
@@ -81,7 +81,7 @@ class DhwInput(BaseModel):
 class OilPropaneBillingRecordInput(BaseModel):
     """From Oil-Propane tab"""
 
-    period_end_date: date = Field(description="Oil-Propane!B")
+    period_end_date: datetime = Field(description="Oil-Propane!B")
     gallons: float = Field(description="Oil-Propane!C")
     inclusion_override: Optional[
         Literal[AnalysisType.ALLOWED_HEATING_USAGE]
