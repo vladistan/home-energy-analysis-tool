@@ -97,8 +97,8 @@ class OilPropaneBillingInput(BaseModel):
 class NaturalGasBillingRecordInput(BaseModel):
     """From Natural Gas tab. A single row of the Billing input table."""
 
-    period_start_date: datetime = Field(description="Natural Gas!A")
-    period_end_date: datetime = Field(description="Natural Gas!B")
+    period_start_date: date = Field(description="Natural Gas!A")
+    period_end_date: date = Field(description="Natural Gas!B")
     usage_therms: float = Field(description="Natural Gas!D")
     inclusion_override: Optional[bool] = Field(description="Natural Gas!E")
 
@@ -177,7 +177,6 @@ def _date_string_parser(rate: str) -> datetime:
 
 class TemperatureInput(BaseModel):
     dates: list[Annotated[datetime, BeforeValidator(_date_string_parser)]]
-    temperatures: list[float]
 
 
 class SummaryOutput(BaseModel):
